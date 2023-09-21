@@ -25,9 +25,9 @@ int	ft_atoi(char *str)
 	return (resul * moins);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*str = " ----+++157872";
 	ft_atoi(str);
 	printf("%d\n", ft_atoi(str));
-}
+}*/
