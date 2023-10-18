@@ -6,7 +6,21 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:48 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/17 18:21:23 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:23:47 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
