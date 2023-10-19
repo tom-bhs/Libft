@@ -15,11 +15,11 @@
 #include <string.h>
 #include <stdio.h>
 
-char	*ft_strdup(char *src)
+char *ft_strdup(char *src)
 {
-	int		len;
-	int		i;
-	char	*dest;
+	int len;
+	int i;
+	char *dest;
 
 	len = 0;
 	while (src[len] != '\0')
