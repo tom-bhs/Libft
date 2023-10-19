@@ -6,7 +6,14 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:17 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/17 18:21:01 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:57:04 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <unistd.h>
+
+void	ft_putchar(char c, int fd)
+{
+	write(fd, &c, 1);
+}

@@ -6,7 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:20:10 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/17 18:21:26 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:09:42 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+char *ft_strtrim(char const *s1, char const *set)
+{
+    
+}

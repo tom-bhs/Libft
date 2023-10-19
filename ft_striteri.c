@@ -6,7 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:35 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/17 18:21:10 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:09:53 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+    
+}

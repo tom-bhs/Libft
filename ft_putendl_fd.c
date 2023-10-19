@@ -6,7 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:20 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/17 18:21:04 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 19:09:39 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void ft_putendl_fd(char *s, int fd)
+{
+    
+}
