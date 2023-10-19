@@ -15,13 +15,13 @@
 #include <string.h>
 #include <stdio.h>
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
-	int len;
-	int i;
-	char *dest;
+	int		en;
+	int		i;
+	char	*dest;
 
-	len = 0;
+	len	=	0;
 	while (src[len] != '\0')
 	{
 		len++;
@@ -40,6 +40,7 @@ char *ft_strdup(char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 /*
 int	main(void)
 {

@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <string.h>
 
-void *ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	if (!b)
 		return (NULL);

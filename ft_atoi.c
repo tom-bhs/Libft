@@ -13,11 +13,11 @@
 #include "libft.h"
 #include <stdio.h>
 
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-	int i;
-	int moins;
-	int resul;
+	int	i;
+	int	moins;
+	int	resul;
 
 	i = 0;
 	moins = 1;
