@@ -6,7 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:18:07 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/17 18:18:33 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:15:13 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ft_isalnum(int c)
+{
+	return (ft_isalpha(c) || ft_isdigit(c));
+}
