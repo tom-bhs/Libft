@@ -6,10 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:18:59 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 17:27:35 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:51:56 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <string.h>
 
 void	*ft_memset(void *b, int c, size_t len)
