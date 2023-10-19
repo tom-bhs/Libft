@@ -6,9 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:48 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 17:11:46 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:33:42 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strcpy(char *dest, char *src)
 {

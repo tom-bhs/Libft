@@ -6,9 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:43 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 17:12:55 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:33:40 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {

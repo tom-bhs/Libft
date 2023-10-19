@@ -6,10 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:18:22 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 15:00:25 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:32:36 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
 int	ft_atoi(char *str)
