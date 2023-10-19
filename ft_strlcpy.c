@@ -6,10 +6,9 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:48 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/18 21:23:47 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/19 17:11:46 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 char	*ft_strcpy(char *dest, char *src)
 {
