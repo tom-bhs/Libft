@@ -11,67 +11,74 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static size_t	ft_count_words(char const *str, char c)
+static size_t	count_words(char const *s, char c)
+{
+	size_t	words;
+	size_t	i;
+
+	words = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			words++;
+		i++;
+	}
+	return (words);
+}
+
+static void	fill_tab(char *new, char const *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+	{
+		new[i] = s[i];
+		i++;
+	}
+	new[i] = '\0';
+}
+
+static void	set_mem(char **tab, char const *s, char c)
 {
 	size_t	count;
+	size_t	index;
+	size_t	i;
 
-	count = 0;
-	while (*str)
+	index = 0;
+	i = 0;
+	while (s[index])
 	{
-		if (*str != c && (*(str + 1) == c || *(str + 1) == '\0'))
+		count = 0;
+		while (s[index + count] && s[index + count] != c)
 			count++;
-		str++;
+		if (count > 0)
+		{
+			tab[i] = malloc(sizeof(char) * (count + 1));
+			if (!tab[i])
+				return ;
+			fill_tab(tab[i], (s + index), c);
+			i++;
+			index = index + count;
+		}
+		else
+			index++;
 	}
-	return (count);
-}
-
-static char	*ft_get_next_word(char const **s, char c)
-{
-	char	*word;
-	size_t	len;
-
-	while (**s == c)
-		(*s)++;
-	len = 0;
-	while ((*s)[len] && (*s)[len] != c)
-		len++;
-	word = ft_substr(*s, 0, len);
-	if (word == NULL)
-		return (NULL);
-	(*s) += len;
-	return (word);
-}
-
-static void	ft_free_split(char **str, int i)
-{
-	while (i-- > 0)
-		free(str[i]);
-	free(str);
+	tab[i] = 0;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**split;
-	size_t	count;
-	size_t	i;
+	size_t	words;
+	char	**tab;
 
-	if (!s)
+	words = count_words(s, c);
+	tab = malloc(sizeof(char *) * (words + 1));
+	if (!tab)
 		return (NULL);
-	count = ft_count_words(s, c);
-	split = (char **)ft_calloc(count + 1, sizeof(char *));
-	if (split == NULL)
-		return (NULL);
-	i = 0;
-	while (i < count)
-	{
-		split[i] = ft_get_next_word(&s, c);
-		if (split[i] == NULL)
-		{
-			ft_free_split(split, i);
-			return (NULL);
-		}
-		i++;
-	}
-	return (split);
+	set_mem(tab, s, c);
+	return (tab);
 }
