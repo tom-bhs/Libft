@@ -3,38 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:43 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 18:33:40 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/24 03:20:47 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
+	size_t	i;
+	size_t	tsrc;
+	size_t	tdest;
 
 	i = 0;
-	while (*dest && i < size)
+	tsrc = ft_strlen(src);
+	tdest = ft_strlen(dest);
+	if (size == 0)
+		return (tsrc);
+	while (src[i] && tdest + i < (size - 1))
 	{
-		++i;
-		++dest;
-	}
-	while (*src && i + 1 < size)
-	{
-		*dest = *src;
-		++dest;
-		++src;
-		++i;
+		dest[i + tdest] = src[i];
+		i++;
 	}
 	if (i < size)
-		*dest = 0;
-	while (*src)
-	{
-		++i;
-		++src;
-	}
-	return (i);
+		dest[i + tdest] = '\0';
+	if (tdest > size)
+		return (size + tsrc);
+	return (tdest + tsrc);
 }

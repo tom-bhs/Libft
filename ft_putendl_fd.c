@@ -3,13 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:20 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 19:09:39 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/24 03:18:47 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putendl_fd(char *s, int fd)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
+	if (fd < 0)
+		return ;
+	ft_putstr_fd(s, fd);
+	write(1, "\n", 1);
 }

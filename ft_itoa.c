@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:17:29 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 19:09:53 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/24 03:16:52 by tom              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 int	compteur(int n)
 {
@@ -28,11 +27,11 @@ int	compteur(int n)
 
 char	*ft_itoa(int n)
 {
-	int					i;
-	long unsigned int	nb;
-	char				*dest;
+	int		i;
+	int		nb;
+	char	*dest;
 
-	i = compteur(n) -1;
+	i = compteur(n) - 1;
 	nb = n;
 	dest = malloc(sizeof(char) * (compteur(n) + 2));
 	if (!dest)
