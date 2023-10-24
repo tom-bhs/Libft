@@ -3,52 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:17:29 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/24 03:16:52 by tom              ###   ########.fr       */
+/*   Updated: 2023/10/24 18:53:08 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-int	compteur(int n)
+static int	count_nb(int n)
 {
-	int	o;
+	int	i;
 
-	o = 0;
+	i = 0;
+	if (n <= 0)
+		i++;
 	while (n != 0)
 	{
 		n /= 10;
-		o++;
+		i++;
 	}
-	return (o);
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
+	char	*res;
 	int		i;
-	int		nb;
-	char	*dest;
+	long	nb;
 
-	i = compteur(n) - 1;
+	i = count_nb(n) - 1;
 	nb = n;
-	dest = malloc(sizeof(char) * (compteur(n) + 2));
-	if (!dest)
+	res = malloc(sizeof(char) * (count_nb(n) + 1));
+	if (!res)
 		return (NULL);
 	if (nb < 0)
 	{
-		dest[0] = '-';
+		res[0] = '-';
 		nb = -nb;
 	}
-	else if (nb == 0)
-		dest[0] = '0';
+	if (nb == 0)
+		res[0] = '0';
 	while (nb != 0)
 	{
-		dest[i] = (nb % 10) + '0';
-		nb /= 10;
+		res[i] = (nb % 10) + '0';
 		i--;
+		nb /= 10;
 	}
-	dest[compteur(n)] = '\0';
-	return (dest);
+	res[count_nb(n)] = '\0';
+	return (res);
 }
+/*
+int	main(void)
+{
+	int	i;
+
+	i = 356;
+	printf("%s", ft_itoa(i));
+	return (0);
+}*/

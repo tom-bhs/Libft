@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:25:02 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/24 03:24:10 by tom              ###   ########.fr       */
+/*   Updated: 2023/10/24 19:29:28 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-# define BUFF_SIZE 8192
-# define MAX_INT 2147483648
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -50,13 +47,13 @@ void				*ft_memcpy(void *dst, const void *source, size_t size);
 void				*ft_memmove(void *dest, const void *src, size_t len);
 void				*ft_memset(void *ptr, int val, size_t cout);
 char				*ft_strchr(const char *str, int c);
-char				*ft_stardup(const char *src);
-char				ft_strcat(char *dest, const char *src);
+char				*ft_strdup(const char *src);
+size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlen(const char *str);
 int					ft_strcmp(const char *str1, const char *str2);
-char				*ft_strnstr(const char *str, const char *needle,
-						size_t len);
+char				*ft_strnstr(const char *str, const char
+						*needle, size_t len);
 char				*ft_strrchr(const char *str, int c);
 int					ft_tolower(int chr);
 int					ft_toupper(int chr);

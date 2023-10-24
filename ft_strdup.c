@@ -6,32 +6,23 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:19:32 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/19 18:52:13 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/24 19:33:03 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
-	int		en;
 	int		i;
+	int		size;
 	char	*dest;
 
-	len	=	0;
-	while (src[len] != '\0')
-	{
-		len++;
-	}
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-	{
-		return (NULL);
-	}
 	i = 0;
+	size = ft_strlen(src);
+	dest = (char *)malloc(sizeof(char) * size + 1);
+	if (!dest)
+		return (NULL);
 	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
@@ -41,13 +32,24 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-/*
-int	main(void)
+/*int main()
 {
-	char	*str;
-	char	*new_str;
+    char *original = "Bonjour, comt ça va ?";
+    char *copie;
 
-	str = "zebi";
-	new_str = ft_strdup(str);
-	printf("%s\n", new_str);
-}*/
+    copie = ft_strdup(original);
+
+    if (copie == NULL)
+    {
+        printf("Erreur lors de la duplication de la chaîne.\n");
+        return 1;
+    }
+
+    printf("Chaîne originale : %s\n", original);
+    printf("Chaîne dupliquée : %s\n", copie);
+
+    free(copie); // N'oubliez pas de libérer la mémoire allouée dynamiquement.
+
+    return 0;
+}
+*/

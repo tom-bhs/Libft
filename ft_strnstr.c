@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:20:05 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/24 03:22:43 by tom              ###   ########.fr       */
+/*   Updated: 2023/10/24 18:25:43 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 			i++;
 			o++;
 			if (s1[i] == '\0' && s2[o] == '\0')
-				return (NULL);
+				return (0);
 		}
 		o = 0;
 		i++;

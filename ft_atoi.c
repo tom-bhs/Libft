@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:18:22 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/24 03:14:40 by tom              ###   ########.fr       */
+/*   Updated: 2023/10/24 18:49:16 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,26 @@
 
 int	ft_atoi(const char *str)
 {
-	int		moins;
-	int		result;
-	size_t	i;
+	int	sign;
+	int	result;
 
-	i = 0;
-	moins = 1;
+	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r'
-		|| str[i] == '\n')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
-			moins = -1;
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
 		result *= 10;
-		result += str[i] - '0';
-		i++;
+		result += *str - 48;
+		str++;
 	}
-	return (result * moins);
+	return (result * sign);
 }
 
 /*int	main(void)
