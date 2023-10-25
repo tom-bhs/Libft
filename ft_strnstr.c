@@ -6,32 +6,33 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:20:05 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/24 18:25:43 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:43:10 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	long unsigned int	i;
-	int					o;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	o = 0;
-	if (s1[0] == '\0')
+	j = 0;
+	if ((n == 0 && !s1) || !s2[0])
 		return ((char *)s1);
-	while (s1[i] != '\0' || i < len)
+	if (!s1[i])
+		return (NULL);
+	while (s1[i] && i < n)
 	{
-		while (s1[i] == s2[o])
+		while (s1[i + j] && s1[i + j] == s2[j] && i + j < n)
 		{
-			i++;
-			o++;
-			if (s1[i] == '\0' && s2[o] == '\0')
-				return (0);
+			j++;
+			if (s2[j] == '\0')
+				return ((char *)s1 + i);
 		}
-		o = 0;
+		j = 0;
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

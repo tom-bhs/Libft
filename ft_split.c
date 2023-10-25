@@ -3,76 +3,109 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tom <tom@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:58:53 by tom               #+#    #+#             */
-/*   Updated: 2023/10/24 03:19:26 by tom              ###   ########.fr       */
+/*   Updated: 2023/10/25 19:25:44 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countwords(char *s, char c)
+static int	count_word(const char *s, char c)
 {
-	int	count;
 	int	i;
+	int	co;
 
 	i = 0;
-	count = 0;
+	co = 0;
+	if (s[0] != c && s[0])
+		co++;
+	i++;
 	while (s[i])
 	{
-		if (s[i] == c || s[i + 1] == '\0')
-			count++;
-		i++;
-	}
-	return (count);
-}
-
-char	*ft_word(char *s, char c)
-{
-	char	*tab;
-	int		wlen;
-	int		i;
-
-	wlen = 0;
-	while (s[wlen] != c)
-		wlen++;
-	tab = malloc(sizeof(char) * wlen + 1);
-	if (!tab)
-		return (NULL);
-	i = 0;
-	while (i < wlen)
-	{
-		tab[i] = s[i];
-		i++;
-	}
-	tab[i] = '\0';
-	return (tab);
-}
-
-char	**ft_split(const char *s, char c)
-{
-	char	**tab;
-	char	*str;
-	int		i;
-
-	i = 0;
-	str = (char *)s;
-	tab = malloc(sizeof(char *) * (countwords(str, c) + 1));
-	if (!tab)
-		return (NULL);
-	while (*str)
-	{
-		if (*str != '\0')
-		{
-			tab[i] = ft_word(str, c);
+		while (s[i] && s[i] == c)
 			i++;
-		}
-		while (*str && *str != c)
-			str++;
-		while (*str && *str == c)
-			str++;
+		if (s[i] != c && s[i - 1] == c && s[i] != '\0')
+			co++;
+		if (s[i])
+			i++;
 	}
-	tab[i] = 0;
-	return (tab);
+	return (co);
+}
+
+static char	**mal1er(char **dest, const char *s, char c)
+{
+	int	i;
+	int	co;
+	int	j;
+
+	j = 0;
+	i = 0;
+	co = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+		{
+			co++;
+			i++;
+			if (s[i] == c || !s[i])
+			{
+				dest[j] = malloc(sizeof(char) * (co + 1));
+				co = 0;
+				j++;
+			}
+		}
+	}
+	dest[j] = NULL;
+	return (dest);
+}
+
+static char	**comp(char **dest, const char *s, char c)
+{
+	int	i;
+	int	co;
+	int	j;
+
+	j = 0;
+	i = 0;
+	co = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] != c && s[i])
+		{
+			dest[j][co] = s[i];
+			co++;
+			i++;
+			if (s[i] == c || !s[i])
+			{
+				dest[j][co] = '\0';
+				co = 0;
+				j++;
+			}
+		}
+	}
+	return (dest);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**dest;
+
+	if (s == NULL || s[0] == '\0')
+	{
+		dest = malloc(sizeof(char *) * 1);
+		dest[0] = NULL;
+		return (dest);
+	}
+	dest = malloc(sizeof(char *) * (count_word(s, c) + 1));
+	if (!dest)
+		return (NULL);
+	dest = mal1er(dest, s, c);
+	dest = comp(dest, s, c);
+	return (dest);
 }
