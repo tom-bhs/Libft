@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 18:20:12 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/26 19:16:18 by tbihoues         ###   ########.fr       */
+/*   Created: 2023/10/26 18:02:12 by tbihoues          #+#    #+#             */
+/*   Updated: 2023/10/26 19:36:14 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char			*sub;
-	unsigned int	i;
-	size_t			s_len;
-
-	i = 0;
-	if (!s)
-		return (ft_strdup(""));
-	s_len = ft_strlen(s);
-	if (start >= s_len)
-		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	sub = malloc(len + 1);
-	if (!sub)
-		return (NULL);
-	while (i < len)
+	if (!new)
+		return ;
+	if (!*lst)
 	{
-		sub[i] = s[start + i];
-		i++;
+		*lst = new;
+		return ;
 	}
-	sub[i] = '\0';
-	return (sub);
+	while (lst-> next != NULL)
+	{
+		lst = lst->next;
+	}
+	lst->next = new;
 }

@@ -6,13 +6,11 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:17:29 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/24 18:53:08 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/26 19:00:20 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static int	count_nb(int n)
 {
