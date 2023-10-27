@@ -6,7 +6,7 @@
 /*   By: tbihoues <tbihoues@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:02:12 by tbihoues          #+#    #+#             */
-/*   Updated: 2023/10/26 19:36:14 by tbihoues         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:00:13 by tbihoues         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!new)
-		return ;
-	if (!*lst)
-	{
+	t_list	*last;
+
+	if (*lst == NULL)
 		*lst = new;
-		return ;
-	}
-	while (lst-> next != NULL)
+	else
 	{
-		lst = lst->next;
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	lst->next = new;
 }
